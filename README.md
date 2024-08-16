@@ -7,8 +7,8 @@ FoodBook is a social app designed for food lovers who enjoy exploring new cuisin
 
 Home page
 
-![alt text](image.png)
+![alt text](/Assets/image.png)
 
 Search by city
 
-![alt text](image-1.png)
+![alt text](/Assets/image-1.png)
