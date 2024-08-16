@@ -13,6 +13,7 @@ I want to have a convenient platform where I can discover, save, and share my fo
 So that I can keep track of my culinary adventures, find new food spots to explore, and connect with other food enthusiasts who share similar tastes.
 
 
+
 ## Wireframe
 
 Home page
