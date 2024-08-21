@@ -1,29 +1,27 @@
-<html lang="en">
+<form class="login-form">
+  <div class="form">
+    <div class="title">Log in</div>
+    <div class="subtitle">Log in to your existing account below:</div>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Registry</title>
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    />
-  </head>
+    <div class="input-container ic1">
+      <label for="userName-login" class="placeholder"></label>
+      <input id="userName-login" class="input" type="text" placeholder="Username" />
 
-  <body>
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        User Registry
-      </h1>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the contents of the sub layout here -->
-      {{{body}}}
-    </main>
-    <footer>
+    </div>
 
-    </footer>
-  </body>
+    <div class="input-container ic2">
+      <label for="password-login" class="placeholder"></label>
+      <input id="password-login" class="input" type="password" placeholder="Password" />
 
-</html>
+    </div>
+
+    <button type="text" class="submit">Login</button>
+
+    <a id="signUp" href="/signup">
+      <div class="subtitle">Don't have an account? <br>
+        Sign up here.</div>
+    </a>
+</form>
+
+
+<script src="/js/loginForm.js"></script>
