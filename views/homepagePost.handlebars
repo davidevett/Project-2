@@ -1,0 +1,26 @@
+{{> post-details posts}}
+
+
+{{#if logged_in}}
+
+<form class="comment-form">
+    <div class="subtitle">Add a comment to this blog post:</div>
+    <div class="input-container ic1">
+        <input id="commentContent" class="input" type="text" placeholder="Add comment here" />
+    </div>
+    <button id="addComment" type="submit">Add comment</button>
+</form>
+
+{{/if}}
+
+
+<div id="comment-div">
+    <h3>Comments for this post:</h3>
+    {{#each posts.comments as |comment|}}
+    <p>{{comment.commentContent}} by {{user.user}} on {{comment.commentDate}}</p>
+    {{/each}}
+</div>
+
+
+
+<script src="/js/addComments.js"></script>

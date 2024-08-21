@@ -1,3 +1,5 @@
+// Model file for user structure
+
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
@@ -16,17 +18,9 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    user: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     password: {
       type: DataTypes.STRING,
