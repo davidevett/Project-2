@@ -1,3 +1,5 @@
+// Handles the logic for logging in
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
