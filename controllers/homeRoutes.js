@@ -1,8 +1,7 @@
-// Routes file to handle homepage logic
-
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
+const searchFoursquare = require('../utils/foursquare'); 
 
 // GET route to display all posts on the homepage
 router.get("/", async (req, res) => {
@@ -81,6 +80,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// GET route to display a specific post
 router.get("/posts/:id", async (req, res) => {
   try {
     const postData = await Post.findOne({
@@ -117,6 +117,18 @@ router.get("/posts/:id", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+router.get('/search', async (req, res) => {
+  const { location, term } = req.query;
+
+  if (!location || !term) {
+    return res.status(400).json({ error: 'Please provide both location and search term.' });
+  }
+
+  const results = await searchFoursquare(location, term);
+
+  res.render('searchResults', { results, logged_in: req.session.logged_in });
 });
 
 module.exports = router;
