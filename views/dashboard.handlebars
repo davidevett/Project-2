@@ -1,17 +1,8 @@
-<h2>Dashboard - Click on any of your submitted posts below to edit its details or delete it.</h2>
+<h2>Discover New Flavors - Search and Manage Your Food Adventures:</h2>
 
-<button id="addPost" class="btn btn-primary" type="submit">Add a new post</button>
-
-<div class="form-popup" id="popUpForm">
-    <form class="addPost-form">
-        <div class="input-container ic1">
-            <input type="text" class="input" id="blogTitle" placeholder="Title">
-        </div>
-        <div class="input-container ic2">
-            <input type="text" class="input" id="blogContent" placeholder="Content">
-        </div>
-        <button id="addPostButton" class="btn btn-primary" type="submit">Add post</button>
-    </form>
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="What are you craving?" />
+    <button id="searchButton" class="btn btn-primary">Search</button>
 </div>
 
 {{#each posts as |post| }}
