@@ -26,10 +26,18 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    text: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      defaultValue: "default_image.jpg",
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: "users",
         key: "id",
       },
     },

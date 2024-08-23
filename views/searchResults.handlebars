@@ -10,7 +10,8 @@
         <p>No image available</p>
     {{/if}}
     <p>Rating: {{business.rating}}</p>
-    <button class="save-post-button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
+    <textarea name="post-text" id="post-text"></textarea>
+    <button class="save-post-button" data-image="{{business.photo.[0]}}"data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
     <a href="https://foursquare.com/v/{{business.fsq_id}}" target="_blank">View on Foursquare</a>
 </div>
 {{/each}}

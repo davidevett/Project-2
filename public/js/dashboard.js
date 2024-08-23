@@ -27,11 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const title = document.querySelector("#blogTitle").value.trim();
         const content = document.querySelector("#blogContent").value.trim();
+        const postImage = document.querySelector("#blogImage").value.trim();
+        const postText = document.querySelector("#blogText").value.trim();
 
         if (title && content) {
             const response = await fetch("/api/posts", {
                 method: "POST",
-                body: JSON.stringify({ title, content }),
+                body: JSON.stringify({ title, content, postImage, postText}),
                 headers: { "Content-Type": "application/json" },
             });
 

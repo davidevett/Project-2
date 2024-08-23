@@ -2,11 +2,12 @@ document.querySelectorAll(".save-post-button").forEach(button => {
     button.addEventListener("click", async (event) => {
         const title = event.target.getAttribute("data-title");
         const content = event.target.getAttribute("data-content");
-
+        const postText = event.target.getAttribute("#post-text");
+        const postImage = event.target.getAttribute("data-image");
         try {
             const response = await fetch("/api/posts/save", {
                 method: "POST",
-                body: JSON.stringify({ title, content }),
+                body: JSON.stringify({ title, content, postText, postImage}),
                 headers: {
                     "Content-Type": "application/json",
                 },
