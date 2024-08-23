@@ -6,28 +6,6 @@
     <button id="searchButton" class="btn btn-primary">Search</button>
 </div>
 
-<div class="explorer">
-    <div id="map" class="explorer-map"></div>
-      <div class="explorer--text">
-        <input
-          type="text"
-          class="explorer--search explorer--background-icon explorer--text"
-          id="explorer-search"
-          placeholder="Search Foursquare Places"
-        />
-        <div id="explorer-dropdown">
-          <ul id="explorer-suggestions"></ul>
-          <div id="explorer-error" class="explorer--error explorer--background-icon">
-            Something went wrong. Please refresh and try again.
-          </div>
-          <div id="explorer-not-found" class="explorer--error explorer--background-icon"></div>
-          <div class="explorer--copyright">
-            <img src="https://files.readme.io/7835fdb-powerByFSQ.svg" alt="powered by foursquare" />
-          </div>
-        </div>
-    </div>
-</div>
-
 {{#each posts as |post| }}
 <a href="/dashboard/posts/{{id}}">
     <div class="post-div ">
@@ -43,7 +21,4 @@
 {{/each}}
 
 <script src="/js/dashboard.js"></script>
-<script src="/js/mapbox.js"></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
-<link href="/css/mapbox.css" rel="stylesheet" />
+
