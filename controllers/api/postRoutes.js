@@ -28,13 +28,13 @@ router.post("/", async (req, res) => {
 // Save search result as a post
 router.post("/save", async (req, res) => {
   try {
-    const { title, content, postText, postImage } = req.body;
+    const { title, content, text, image } = req.body;
 
     const postData = await Post.create({
       title,
       content,
-      text: postText,
-      image: postImage,
+      text,
+      image,
       user_id: req.session.user_id,
       creationDate: new Date().toISOString().slice(0, 10), 
     });

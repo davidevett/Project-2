@@ -5,13 +5,13 @@
     <h3>{{business.name}}</h3>
     <p>{{business.location.address}}</p>
     {{#if business.photos.[0]}}
-        <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:100px;height:auto;">
+        <img id="data-image" src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:100px;height:auto;">
     {{else}}
         <p>No image available</p>
     {{/if}}
     <p>Rating: {{business.rating}}</p>
-    <textarea name="post-text" id="post-text"></textarea>
-    <button class="save-post-button" data-content="{{business.location.address}}">Save Post</button>
+    <textarea name="text" id="data-text"></textarea>
+    <button class="save-post-button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
     <a href="https://foursquare.com/v/{{business.fsq_id}}" target="_blank">View on Foursquare</a>
 </div>
 {{/each}}
