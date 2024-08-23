@@ -1,0 +1,10 @@
+<h2>Search Results:</h2>
+
+{{#each results as |business|}}
+<div class="business-div">
+    <h3>{{business.name}}</h3>
+    <p>{{business.location.address}}</p>
+    <p>Rating: {{business.rating}}</p>
+    <a href="{{business.fsq_id}}" target="_blank">View on Foursquare.</a>
+</div>
+{{/each}}
