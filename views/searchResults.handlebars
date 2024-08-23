@@ -10,6 +10,9 @@
         <p>No image available</p>
     {{/if}}
     <p>Rating: {{business.rating}}</p>
+    <button class="save-post-button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
     <a href="https://foursquare.com/v/{{business.fsq_id}}" target="_blank">View on Foursquare</a>
 </div>
 {{/each}}
+
+<script src="/js/savePost.js"></script>

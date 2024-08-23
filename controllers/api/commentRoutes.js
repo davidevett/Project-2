@@ -1,5 +1,3 @@
-// Routes file to handle comments
-
 const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
@@ -8,7 +6,6 @@ const withAuth = require("../../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const commentData = await Comment.findAll();
-
     res.status(200).json(commentData);
   } catch (err) {
     console.log(err);
@@ -17,13 +14,13 @@ router.get("/", async (req, res) => {
 });
 
 // CREATE a new comment
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
       commentContent: req.body.commentContent,
       post_id: req.body.post_id,
       user_id: req.session.user_id,
-      commentDate: req.body.commentDate,
+      commentDate: new Date().toISOString().slice(0, 10), // Current date
     });
 
     res.status(200).json(commentData);

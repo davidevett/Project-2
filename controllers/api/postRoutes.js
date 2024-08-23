@@ -1,5 +1,3 @@
-// Routes file to handle posts
-
 const router = require("express").Router();
 const { Post, User } = require("../../models");
 
@@ -10,7 +8,7 @@ router.post("/", async (req, res) => {
       title: req.body.title,
       content: req.body.content,
       user_id: req.session.user_id,
-      creationDate: req.body.creationDate,
+      creationDate: new Date().toISOString().slice(0, 10), // Current date
     });
 
     req.session.save(() => {
@@ -25,10 +23,29 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Save search result as a post
+router.post("/save", async (req, res) => {
+  try {
+    const { title, content } = req.body;
+
+    const postData = await Post.create({
+      title,
+      content,
+      user_id: req.session.user_id,
+      creationDate: new Date().toISOString().slice(0, 10), 
+    });
+
+    res.status(200).json(postData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // UPDATE a blog post
 router.put("/:id", async (req, res) => {
   try {
-    const postData = Post.update(
+    const postData = await Post.update(
       {
         title: req.body.title,
         content: req.body.content,
