@@ -7,6 +7,8 @@ router.post("/", async (req, res) => {
     const postData = await Post.create({
       title: req.body.title,
       content: req.body.content,
+      text: req.body.text,
+      image: req.body.image,
       user_id: req.session.user_id,
       creationDate: new Date().toISOString().slice(0, 10), // Current date
     });
@@ -26,11 +28,13 @@ router.post("/", async (req, res) => {
 // Save search result as a post
 router.post("/save", async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, postText, postImage } = req.body;
 
     const postData = await Post.create({
       title,
       content,
+      text: postText,
+      image: postImage,
       user_id: req.session.user_id,
       creationDate: new Date().toISOString().slice(0, 10), 
     });
@@ -49,6 +53,7 @@ router.put("/:id", async (req, res) => {
       {
         title: req.body.title,
         content: req.body.content,
+        text: req.body.text,
       },
       {
         where: {
