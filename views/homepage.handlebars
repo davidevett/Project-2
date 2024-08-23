@@ -1,5 +1,10 @@
-<h2>Homepage - check out the blog posts below!</h2>
+<h2>Homepage - Check out the saved food adventures!</h2>
 
 {{#each posts as |post|}}
-{{> post-details post}}
+<div class="post-div">
+    <h3>{{post.title}}</h3>
+    <p>{{post.content}}</p>
+    <p>By user {{post.user.user}} on {{post.creationDate}}</p>
+    <a href="/posts/{{post.id}}">View Post</a>
+</div>
 {{/each}}

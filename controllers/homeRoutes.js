@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
-const searchFoursquare = require('../utils/foursquare'); 
+const searchFoursquare = require("../utils/foursquare"); // Import the searchFoursquare function
 
 // GET route to display all posts on the homepage
 router.get("/", async (req, res) => {
@@ -119,6 +119,7 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
+// Search route to handle search requests using Foursquare
 router.get('/search', async (req, res) => {
   const { location, term } = req.query;
 
@@ -126,9 +127,13 @@ router.get('/search', async (req, res) => {
     return res.status(400).json({ error: 'Please provide both location and search term.' });
   }
 
-  const results = await searchFoursquare(location, term);
-
-  res.render('searchResults', { results, logged_in: req.session.logged_in });
+  try {
+    const results = await searchFoursquare(location, term); // Use the imported function
+    res.render('searchResults', { results, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.error('Error during search:', err);
+    res.status(500).json({ error: 'Failed to fetch search results' });
+  }
 });
 
 module.exports = router;
