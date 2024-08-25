@@ -1,5 +1,3 @@
-// Model file for post structure
-
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 

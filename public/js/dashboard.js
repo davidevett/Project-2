@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (location && term) {
                 document.location.replace(`/search?location=${location}&term=${term}`);
             } else {
-                alert('Please enter both location and search term.');
+                showNotification('Please enter both location and search term.', 'error');
             }
         });
     }
@@ -38,9 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             if (response.ok) {
-                document.location.reload();
+                document.location.reload(); // Update the page without an alert
+                showNotification("Post added successfully!");
             } else {
-                alert(`Failed to add post.`);
+                showNotification("Failed to add post.", "error");
             }
         }
     };

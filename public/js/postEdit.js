@@ -1,11 +1,8 @@
-// Handles the logic for editing a post
-
 const editBlogPostHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector("#blogTitle").value.trim();
   const content = document.querySelector("#blogContent").value.trim();
-
   const postID = window.location.pathname.split("/")[3];
 
   const response = await fetch(`/api/posts/${postID}`, {
@@ -21,8 +18,9 @@ const editBlogPostHandler = async (event) => {
 
   if (response.ok) {
     document.location.replace("/dashboard");
+    showNotification("Post updated successfully!");
   } else {
-    alert(response.statusText);
+    showNotification("Failed to update post.", "error");
   }
 };
 
@@ -32,9 +30,6 @@ document
 
 const deletePostHandler = async (event) => {
   event.preventDefault();
-
-  const title = document.querySelector("#blogTitle").value.trim();
-  const content = document.querySelector("#blogContent").value.trim();
 
   const postID = window.location.pathname.split("/")[3];
 
@@ -47,8 +42,9 @@ const deletePostHandler = async (event) => {
 
   if (response.ok) {
     document.location.replace("/dashboard");
+    showNotification("Post deleted successfully!");
   } else {
-    alert(response.statusText);
+    showNotification("Failed to delete post.", "error");
   }
 };
 

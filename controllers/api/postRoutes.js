@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const { Post, User } = require("../../models");
+const { Post } = require("../../models");
+const withAuth = require("../../utils/auth"); // Importing withAuth middleware
 
 // CREATE new blog post
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => { // Adding withAuth to this route as well
   try {
     const postData = await Post.create({
       title: req.body.title,
@@ -26,7 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 // Save search result as a post
-router.post("/save", async (req, res) => {
+router.post("/save", withAuth, async (req, res) => { // Protecting this route
   try {
     const { title, content, text, image } = req.body;
 
@@ -36,7 +37,7 @@ router.post("/save", async (req, res) => {
       text,
       image,
       user_id: req.session.user_id,
-      creationDate: new Date().toISOString().slice(0, 10), 
+      creationDate: new Date().toISOString().slice(0, 10),
     });
 
     res.status(200).json(postData);
@@ -47,7 +48,7 @@ router.post("/save", async (req, res) => {
 });
 
 // UPDATE a blog post
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => { // Adding withAuth to ensure only owners can edit
   try {
     const postData = await Post.update(
       {
@@ -69,7 +70,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE a blog post
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => { // Adding withAuth to ensure only owners can delete
   try {
     const deletedPost = await Post.destroy({
       where: {
