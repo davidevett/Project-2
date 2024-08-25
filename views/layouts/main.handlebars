@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodBook</title>
     <link rel="stylesheet" href="/css/jass.css">
+    <style>
+        /* Inline CSS for notifications, or include this in your main CSS file */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745; /* Green for success */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0.9;
+            font-family: Arial, sans-serif;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .notification.error {
+            background-color: #dc3545; /* Red for error */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,15 +43,24 @@
 
     {{{ body }}}
 
+    <!-- Notification container -->
+    <div id="notification-container"></div>
+
     <footer>
         <!-- Footer content -->
     </footer>
 
+    <script src="/js/notification.js"></script> <!-- Include the notification script -->
+    
     {{#if logged_in}}
     <script src="/js/postLogin.js"></script>
     {{else}}
     <script src="/js/preLogin.js"></script>
     {{/if}}
+
+    <!-- Additional JavaScript files -->
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/savePost.js"></script>
+    <script src="/js/addComments.js"></script>
 </body>
 </html>
-
