@@ -1,19 +1,22 @@
-<h2>Search Results:</h2>
+<div id="search-results">
+    <h2 class="subtitle">Search Results:</h2>
 
-{{#each results as |business|}}
-<div class="business-div">
-    <h3>{{business.name}}</h3>
-    <p>{{business.location.address}}</p>
-    {{#if business.photos.[0]}}
-        <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:100px;height:auto;">
-    {{else}}
-        <p>No image available</p>
-    {{/if}}
-    <p>Rating: {{business.rating}}</p>
-    <textarea data-text>{{business.name}} is a great place to visit!</textarea>
-    <button class="save-post-button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
-    <a href="https://foursquare.com/v/{{business.fsq_id}}" target="_blank">View on Foursquare</a>
+    {{#each results as |business|}}
+    <div class="business-div">
+        <h3 class="subtitle">{{business.name}}</h3>
+        <p>{{business.location.address}}</p>
+        <div>
+            {{#if business.photos.[0]}}
+                <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:100px;height:auto;">
+            {{else}}
+                <p>No image available</p>
+            {{/if}}
+        </div>
+        <p>Rating: {{business.rating}}</p>
+        <textarea class="textarea" data-text>{{business.name}} is a great place to visit!</textarea>
+        <button class="save-post-button button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
+        <a href="https://foursquare.com/v/{{business.fsq_id}}" class="button" target="_blank">View on Foursquare</a>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
-
 <script src="/js/savePost.js"></script>

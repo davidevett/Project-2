@@ -1,30 +1,41 @@
-<h2>Discover New Flavors - Search and Manage Your Food Adventures:</h2>
+<div id="dashboard">
+  <h2 class="subtitle">Discover New Flavors - Search and Manage Your Food
+    Adventures:</h2>
 
-<div class="search-bar">
-    <input type="text" id="searchLocation" placeholder="Enter a city or location..." />
-    <input type="text" id="searchInput" placeholder="What are you craving?" />
-    <button id="searchButton" class="btn btn-primary">Search</button>
-</div>
+  <div class="search-bar">
+    <input
+      type="text"
+      id="searchLocation"
+      class="input"
+      placeholder="Enter a city or location..."
+    />
+    <input
+      type="text"
+      id="searchInput"
+      class="input"
+      placeholder="What are you craving?"
+    />
+    <button id="searchButton" class="btn btn-primary button">Search</button>
+  </div>
 
-{{#each posts as |post| }}
-<a href="/dashboard/posts/{{id}}">
-    <div class="post-div ">
+  {{#each posts as |post|}}
+    <a href="/dashboard/posts/{{id}}">
+      <div class="post-div">
         <div class="col-md-6">
-            <h3>{{post.title}}</h3>
+          <h3>{{post.title}}</h3>
         </div>
         <div class="col-md-6">
-            {{post.image}}
+          {{post.image}}
         </div>
         <div class="col-md-6">
-            <p>{{post.content}}</p>
+          <p>{{post.content}}</p>
         </div>
         <div class="col-md-6">
-            <p>{{post.text}}</p>
+          <p>{{post.text}}</p>
         </div>
         <p>By user {{user.user}} on {{post.creationDate}}</p>
-    </div>
-</a>
-{{/each}}
-
+      </div>
+    </a>
+  {{/each}}
+</div>
 <script src="/js/dashboard.js"></script>
-
