@@ -3,14 +3,37 @@
 
     {{#each results as |business|}}
     <div class="business-div">
-        <h3 class="subtitle">{{business.name}}</h3>
-        <p>{{business.location.address}}</p>
-        <div>
-            {{#if business.photos.[0]}}
-                <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:100px;height:auto;">
-            {{else}}
+        <div id="search-title-image">
+        <div id="search-title">
+            <h3 class="subtitle">{{business.name}}</h3>
+            <p>{{business.location.formatted_address}}</p>
+            <p>{{business.description}}</p>
+        </div>
+        <div id="images" class="is-flex">
+            <div id="img">
+                {{#if business.photos.[0]}}
+                <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:300px;height:auto;">
+                {{else}}
                 <p>No image available</p>
-            {{/if}}
+                {{/if}}
+            </div>
+            <div>
+                <div>
+                    {{#if business.photos.[1]}}
+                    <img src="{{business.photos.[1].prefix}}original{{business.photos.[1].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:auto;">
+                    {{else}}
+                    <p>No image available</p>
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if business.photos.[2]}}
+                    <img src="{{business.photos.[2].prefix}}original{{business.photos.[2].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:auto;">
+                    {{else}}
+                    <p>No image available</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
         </div>
         <p>Rating: {{business.rating}}</p>
         <textarea class="textarea" data-text>{{business.name}} is a great place to visit!</textarea>

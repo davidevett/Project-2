@@ -18,3 +18,31 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+#images{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;    
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 45%;
+}
+
+#img{
+    margin: 1px;
+}
+
+#search-title{
+    margin-bottom: 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 35%;
+}
+
+#search-title-image{
+    display: flex;
+}
