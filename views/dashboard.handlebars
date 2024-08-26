@@ -18,9 +18,11 @@
     <button id="searchButton" class="btn btn-primary button">Search</button>
   </div>
 
+<div id="user-posts" >
   {{#each posts as |post|}}
-    <a href="/dashboard/posts/{{id}}">
-      <div class="post-div">
+  <div class="card">
+    <a href="/dashboard/posts/{{id}}" class="card-content">
+      <div class="post-div card-content">
         <div class="">
           <h3>{{post.title}}</h3>
         </div>
@@ -36,6 +38,9 @@
         <p>By user {{user.user}} on {{post.creationDate}}</p>
       </div>
     </a>
+   </div> 
   {{/each}}
+</div>
+
 </div>
 <script src="/js/dashboard.js"></script>
