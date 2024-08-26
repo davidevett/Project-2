@@ -12,7 +12,7 @@ const searchFoursquare = async (location, query) => {
       params: {
         query,
         near: location,
-        limit: 50, // Limit of results
+        limit: 20, // Limit of results
       },
     });
 
