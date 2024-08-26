@@ -60,6 +60,37 @@
     display: block;
     margin: 10px 0;
     max-height: 400px;
-    object-fit: cover; /* Ensures the image covers the area without distorting */
-    border-radius: 10px; /* Optional: rounds the corners of the images */
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745; 
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0.9;
+    font-family: Arial, sans-serif;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.notification.error {
+    background-color: #dc3545; 
+}
+
+.navbar-brand .button {
+    width: 120px; 
+    margin: 5px; 
+    text-align: center; 
+}
+
+.division-line {
+    border-top: 2px solid #ccc; 
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
