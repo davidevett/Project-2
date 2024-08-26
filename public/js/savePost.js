@@ -1,5 +1,6 @@
 document.querySelectorAll(".save-post-button").forEach(button => {
     button.addEventListener("click", async (event) => {
+        event.preventDefault(); 
         const title = event.target.getAttribute("data-title");
         const content = event.target.getAttribute("data-content");
         const textElement = event.target.parentElement.querySelector("[data-text]");

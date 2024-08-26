@@ -68,17 +68,3 @@
 #search-title-image{
     display: flex;
 }
-
-#comment-div{
-    margin: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#post-div{
-    margin: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-}

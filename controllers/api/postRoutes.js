@@ -27,23 +27,29 @@ router.post("/", withAuth, async (req, res) => { // Adding withAuth to this rout
 });
 
 // Save search result as a post
-router.post("/save", withAuth, async (req, res) => { // Protecting this route
+router.post("/save", withAuth, async (req, res) => {
   try {
-    const { title, content, text, image } = req.body;
+      const { title, content, text, image } = req.body;
 
-    const postData = await Post.create({
-      title,
-      content,
-      text,
-      image,
-      user_id: req.session.user_id,
-      creationDate: new Date().toISOString().slice(0, 10),
-    });
+      // Check for existing post with the same title and content to prevent duplicates
+      const existingPost = await Post.findOne({ where: { title, content } });
+      if (existingPost) {
+          return res.status(400).json({ message: "This post already exists." });
+      }
 
-    res.status(200).json(postData);
+      const postData = await Post.create({
+          title,
+          content,
+          text,
+          image,
+          user_id: req.session.user_id,
+          creationDate: new Date().toISOString().slice(0, 10),
+      });
+
+      res.status(200).json(postData);
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+      console.log(err);
+      res.status(500).json(err);
   }
 });
 
