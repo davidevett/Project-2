@@ -7,7 +7,8 @@
         <div id="search-title">
             <h3 class="subtitle">{{business.name}}</h3>
             <p>{{business.location.formatted_address}}</p>
-            <p>{{business.description}}</p>
+            <p>{{business.description}}</p> <!-- Show the description if available -->
+            <p>Rating: {{business.rating}}</p> <!-- Show the rating here -->
         </div>
         <div id="images" class="is-flex">
             <div id="img">
@@ -35,7 +36,6 @@
             </div>
         </div>
         </div>
-        <p>Rating: {{business.rating}}</p>
         <textarea class="textarea" data-text>{{business.name}} is a great place to visit!</textarea>
         <button class="save-post-button button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
         <a href="https://foursquare.com/v/{{business.fsq_id}}" class="button" target="_blank">View on Foursquare</a>

@@ -18,8 +18,23 @@ const searchFoursquare = async (location, query) => {
 
     const places = response.data.results;
 
-    // Fetch photos for each place
+    // Fetch details for each place including ratings
     for (const place of places) {
+      const detailsEndpoint = `https://api.foursquare.com/v3/places/${place.fsq_id}`;
+      const detailsResponse = await axios.get(detailsEndpoint, {
+        headers: {
+          Authorization: apiKey,
+        },
+      });
+
+      // Log the details response to check if ratings are being fetched
+      console.log('Details response:', detailsResponse.data);
+
+      // Include rating in the place data
+      place.rating = detailsResponse.data.rating || 'N/A'; // Default to 'N/A' if no rating
+      place.description = detailsResponse.data.description || 'No description available'; // Add description if available
+
+      // Fetch photos for each place
       const photoEndpoint = `https://api.foursquare.com/v3/places/${place.fsq_id}/photos`;
       const photoResponse = await axios.get(photoEndpoint, {
         headers: {
