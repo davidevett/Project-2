@@ -1,10 +1,24 @@
 #title-display{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background-color: #CC5500;
 }
 
+#login{
+    margin: 5px;
+}
+
+#navbar{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
 #dashboard{
+    margin: 5px;
+}
+
+#homepage{
     margin: 5px;
 }
 
@@ -17,6 +31,14 @@
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+}
+
+.post-div{
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+
 }
 
 #images{
@@ -45,4 +67,18 @@
 
 #search-title-image{
     display: flex;
+}
+
+#comment-div{
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#post-div{
+    margin: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
 }

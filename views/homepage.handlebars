@@ -1,12 +1,18 @@
+<div id="homepage">
 <h2>Homepage - Check out the saved food adventures!</h2>
 
 {{#each posts as |post|}}
 <div class="post-div">
-    <h3>{{post.title}}</h3>
-    <img src="{{post.image}}" alt="{{post.title}}">
-    <p>{{post.content}}</p>
+    <div class="search-title">
+        <h3>{{post.title}}</h3>
+        <p>{{post.content}}</p>
+    </div>
+    <div class="images">
+          <img class="image is-128x128" src="{{post.image}}" alt="{{post.title}}">  
+    </div>
     <p>{{post.text}}</p>
     <p>By user {{post.user.user}} on {{post.creationDate}}</p>
-    <a href="/posts/{{post.id}}">View Post</a>
+    <a class="button" href="/posts/{{post.id}}">View Post</a>
 </div>
 {{/each}}
+</div>

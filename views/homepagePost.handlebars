@@ -1,22 +1,28 @@
-<h2>{{posts.title}}</h2>
-<p>{{posts.content}}</p>
-<p>By user {{posts.user.user}} on {{posts.creationDate}}</p>
-
-<h3>Comments:</h3>
-<div id="comment-div">
+<div id="homepage">
+  <div id="post-div">
+    <h2 class="subtitle">{{posts.title}}</h2>
+    <p>{{posts.content}}</p>
+    <p>By user {{posts.user.user}} on {{posts.creationDate}}</p>
+  </div>
+  <h3>Comments:</h3>
+  <div id="comment-div">
     {{#each posts.comments as |comment|}}
-    <p>{{comment.commentContent}} by {{comment.user.user}} on {{comment.commentDate}}</p>
+      <p>{{comment.commentContent}}
+        by
+        {{comment.user.user}}
+        on
+        {{comment.commentDate}}</p>
     {{/each}}
+  </div>
+
+  {{#if logged_in}}
+    <form class="comment-form">
+      <div class="subtitle">Add a comment to this blog post:</div>
+      <div class="input-container ic1">
+        <input id="commentContent"class="input"type="text"placeholder="Add comment here"/>
+      </div>
+      <button id="addComment" class="button" type="submit">Add comment</button>
+    </form>
+  {{/if}}
 </div>
-
-{{#if logged_in}}
-<form class="comment-form">
-    <div class="subtitle">Add a comment to this blog post:</div>
-    <div class="input-container ic1">
-        <input id="commentContent" class="input" type="text" placeholder="Add comment here" />
-    </div>
-    <button id="addComment" type="submit">Add comment</button>
-</form>
-{{/if}}
-
-<script src="/js/addComments.js"></script> 
+<script src="/js/addComments.js"></script>
