@@ -46,3 +46,20 @@
 #search-title-image{
     display: flex;
 }
+
+.post-div img {
+    max-width: 100%;  
+    height: auto;     
+    display: block;   
+    margin: 10px 0;   
+    max-height: 500px; 
+}
+.post-div img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    max-height: 400px;
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    border-radius: 10px; /* Optional: rounds the corners of the images */
+}
