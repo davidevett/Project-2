@@ -8,18 +8,35 @@
           <p class="subtitle">{{post.user.user}}</p>
           <p>{{post.creationDate}}</p>
         </div>
-        <div id="post-content" >
+        <div id="post-content">
           <div class="search-title">
             <h3 class="subtitle">{{post.title}}</h3>
             <p id="search-address">{{post.content}}</p>
             <p id="post-text">{{post.text}}</p>
           </div>
           <div class="images">
-            <imgclass="image is-128x128"src="{{post.image}}"alt="{{post.title}}"/>
+            <img class="image is-128x128" src="{{post.image}}" alt="{{post.title}}"/>
           </div>
         </div>
       </div>
-    <a class="button is-small" href="/posts/{{post.id}}">View Post</a>
+      <a class="button is-small" href="/posts/{{post.id}}">View Post</a>
+      <button class="delete-post-button button is-danger is-small" data-id="{{post.id}}">Delete Post</button>
     </div>
   {{/each}}
 </div>
+
+<!-- Custom Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <p>Are you sure you want to delete this post?</p>
+      <button id="confirmDeleteButton" class="button is-danger">Yes, Delete</button>
+      <button id="cancelDeleteButton" class="button">Cancel</button>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Include the deletePost.js script -->
+<script src="/js/deletePost.js"></script>
