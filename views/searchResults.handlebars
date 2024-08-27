@@ -4,41 +4,46 @@
     {{#each results as |business|}}
     <div class="business-div card">
         <div id="search-div-image">
-        <div id="search-div" class="card-content">
-            <h3 id="search-title" class="subtitle has-text-weight-bold">{{business.name}}</h3>
-            <p id="search-address">Address: {{business.location.formatted_address}}</p>
-            <p id="search-description">Description: {{business.description}}</p>
-            <p id="search-rating">Rating: {{business.rating}}</p>
-        </div>
-        <div id="images" class="is-flex card-image">
-            <div id="img">
-                {{#if business.photos.[0]}}
-                <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:300px;height:300;">
-                {{else}}
-                <p>No image available</p>
-                {{/if}}
+            <div id="search-div" class="card-content">
+                <h3 id="search-title" class="subtitle has-text-weight-bold">{{business.name}}</h3>
+                <p id="search-address">Address: {{business.location.formatted_address}}</p>
+                <p id="search-description">Description: {{business.description}}</p>
+                <p id="search-rating">Rating: {{business.rating}}</p>
             </div>
-            <div>
-                <div>
-                    {{#if business.photos.[1]}}
-                    <img src="{{business.photos.[1].prefix}}original{{business.photos.[1].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:150;">
+            <div id="images" class="is-flex card-image">
+                <div id="img">
+                    {{#if business.photos.[0]}}
+                    <img src="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}" alt="Image of {{business.name}}" style="width:300px;height:300px;">
                     {{else}}
                     <p>No image available</p>
                     {{/if}}
                 </div>
                 <div>
-                    {{#if business.photos.[2]}}
-                    <img src="{{business.photos.[2].prefix}}original{{business.photos.[2].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:150;">
-                    {{else}}
-                    <p>No image available</p>
-                    {{/if}}
+                    <div>
+                        {{#if business.photos.[1]}}
+                        <img src="{{business.photos.[1].prefix}}original{{business.photos.[1].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:150px;">
+                        {{else}}
+                        <p>No image available</p>
+                        {{/if}}
+                    </div>
+                    <div>
+                        {{#if business.photos.[2]}}
+                        <img src="{{business.photos.[2].prefix}}original{{business.photos.[2].suffix}}" alt="Image of {{business.name}}" style="width:150px;height:150px;">
+                        {{else}}
+                        <p>No image available</p>
+                        {{/if}}
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="card-content">
             <textarea class="textarea" data-text placeholder="Write your thoughts about this place..."></textarea>
-            <button class="save-post-button button" data-title="{{business.name}}" data-content="{{business.location.address}}">Save Post</button>
+            <button class="save-post-button button" 
+                    data-title="{{business.name}}" 
+                    data-content="{{business.location.formatted_address}}" 
+                    data-image="{{business.photos.[0].prefix}}original{{business.photos.[0].suffix}}">
+                Save Post
+            </button>
             <a href="https://foursquare.com/v/{{business.fsq_id}}" class="button" target="_blank">View on Foursquare</a>
         </div>    
     </div>
