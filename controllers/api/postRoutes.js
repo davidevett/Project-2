@@ -3,30 +3,30 @@ const { Post } = require("../../models");
 const withAuth = require("../../utils/auth"); // Importing withAuth middleware
 
 // CREATE new blog post
-router.post("/", withAuth, async (req, res) => { // Adding withAuth to this route as well
-  try {
-    const postData = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      text: req.body.text,
-      image: req.body.image,
-      user_id: req.session.user_id,
-      creationDate: new Date().toISOString().slice(0, 10), // Current date
-    });
+// router.post("/", withAuth, async (req, res) => { // Adding withAuth to this route as well
+//   try {
+//     const postData = await Post.create({
+//       title: req.body.title,
+//       content: req.body.content,
+//       text: req.body.text,
+//       image: req.body.image,
+//       user_id: req.session.user_id,
+//       creationDate: new Date().toISOString().slice(0, 10), // Current date
+//     });
 
-    req.session.save(() => {
-      req.session.post_id = postData.id;
-      req.session.logged_in = true;
+//     req.session.save(() => {
+//       req.session.post_id = postData.id;
+//       req.session.logged_in = true;
 
-      res.status(200).json(postData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//       res.status(200).json(postData);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-// Save search result as a post
+//Save search result as a post
 router.post("/save", withAuth, async (req, res) => {
   try {
       const { title, content, text, image } = req.body;

@@ -5,14 +5,26 @@
     <div class="post-div card">
       <div id="post-div" class="card-content">
         <div id="post-user">
-          <p class="subtitle">{{post.user.user}}</p>
-          <p>{{post.creationDate}}</p>
+          <div class="box">
+          <p id="homepage-username">{{post.user.user}}</p>
+          <p id="homepage-tags">{{post.creationDate}}</p>
+          </div>
         </div>
         <div id="post-content" >
           <div class="search-title">
+            <div class="box">
+            <p id="homepage-tags">Name:</p>
             <h3 class="subtitle">{{post.title}}</h3>
+            </div>
+            <P id="homepage-tags">Address:</P>
             <p id="search-address">{{post.content}}</p>
+
+            {{#if post.text}}
+            <p id="homepage-tags">Review:</p>
             <p id="post-text">{{post.text}}</p>
+            {{else}}
+            <p></p>
+            {{/if}}
           </div>
           <div class="images">
             <imgclass="image is-128x128"src="{{post.image}}"alt="{{post.title}}"/>

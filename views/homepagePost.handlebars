@@ -1,17 +1,21 @@
 <div id="homepage">
-  <div id="post-div">
+  <div class="box">
+    <p id="homepage-tags">Name:</p>
     <h2 class="subtitle">{{posts.title}}</h2>
+    <P id="homepage-tags">Address:</P>
     <p>{{posts.content}}</p>
-    <p>By user {{posts.user.user}} on {{posts.creationDate}}</p>
+    <p id="homepage-tags">Review:</p>
+    <p id="post-text">{{posts.text}}</p>
+    <p id="homepage-tags">User:</p>
+    <p>{{posts.user.user}} on {{posts.creationDate}}</p>
   </div>
   <h3>Comments:</h3>
-  <div id="comment-div">
+  <div id="comment-div" class="box">
     {{#each posts.comments as |comment|}}
-      <p>{{comment.commentContent}}
-        by
-        {{comment.user.user}}
-        on
-        {{comment.commentDate}}</p>
+    <div id="comments">
+      <p id="comment-text">{{comment.commentContent}}</p>
+      <p id="homepage-tags">{{comment.user.user}} on {{comment.commentDate}}</p>
+    </div>
     {{/each}}
   </div>
 

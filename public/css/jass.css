@@ -76,9 +76,39 @@
 #post-user{
     padding-right: 20px;
     margin-right: 10px;
-    border-right:3px solid #333;
+    border-right:2px solid #c2c2c25c;
 }
 
 #post-content{
-    
+
+    padding-left: 15px;
+}
+
+#post-text{
+    margin: 5px;
+    border: 2px solid #a1a1a1;
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+#homepage-tags{
+    color: #888888;
+    font-size: smaller; 
+}
+
+#homepage-username{
+    font-size: x-large;
+
+}
+
+#comment-text{
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+#comments{
+    background-color: #e8e8e8c0;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
 }
