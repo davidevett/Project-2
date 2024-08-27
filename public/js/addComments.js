@@ -37,6 +37,4 @@ if (commentForm) {
       console.log("Comment content is empty, not submitting."); // Debug log
     }
   });
-} else {
-  console.log("Comment form not found on this page."); // Debug log
 }

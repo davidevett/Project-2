@@ -112,3 +112,17 @@
     padding: 15px;
     margin: 10px;
 }
+
+.modal {
+    display: none;
+  }
+  
+  .modal.is-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-background {
+    background: rgba(10, 10, 10, 0.86);
+  }
